@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>计算器</title>
+	<style type="text/css">
+		#title_name{
+			text-align: center;
+			margin-top: 30px;
+			color: #D3D3D3;
+			font-size: 30px;
+			font-weight: bold;
+		}
+
+		body{
+			
+			background: #555;
+		}
+
+		table{
+			background-color: white;
+			border-color: #a73f2d;
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
+		}
+
+		table tr td input{
+			cursor: pointer;
+			width: 67px;
+			height: 45px;
+		}
+
+		table td,
+	table tr {
+		padding:5px;
+		border:1px solid #fff;
+		border-width:0 1px 1px 0;
+		}
+
+		#in_c{
+			cursor:pointer; 
+			width:146px; 
+			height:45px;
+		}
+
+		#in_equ{
+			 cursor:pointer; 
+			 width:67px; 
+			 height:115px;
+		}
+
+		#in_0{
+			cursor:pointer; 
+			width:146px; 
+			height:45px;
+		}
+
+		#input_content{
+			height: 65px; 
+			width: 534px; 
+			font-size: 50px; 
+		}
+
+		.button_style{
+			-moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+			-webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+			box-shadow:inset 0px 34px 0px -15px #b54b3a;
+			background-color:#a73f2d;
+			border:1px solid #241d13;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:15px;
+			font-weight:bold;
+			padding:9px 23px;
+			text-decoration:none;
+			text-shadow:0px -1px 0px #7a2a1d;
+			border-bottom-left-radius: 1px;
+			border-top-left-radius: 1px;
+			border-bottom-right-radius: 1px;
+			border-top-right-radius: 1px;
+		}
+
+		.button_style:hover {
+			background-color:#b34332;
+		}
+		.button_style:active {
+			position:relative;
+			top:1px;
+		}
+
+		body { 
+			margin:0; 
+			padding:20px; 
+			font:13px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+		}
+
+		#result_id{
+			width: 530px;
+			height: 55px;
+			border-bottom-left-radius: 5px;
+			border-top-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			border-top-right-radius: 5px;
+			border:2px solid #a73f2d;
+			font-size:35px;
+			font-
+		}
+
+		#in_equ,#in_c{
+			color: yellow;
+		}
+
+		#in_div, #in_mult, #in_add, #in_subtract{
+			color:black;
+			font-size: 20px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id = "title_name">计算器</div>
+	<div id = "result_name">
+		<table id="table_id" width="0" height="270" border="5" align="center" cellspacing="0" cellpadding="5">
+			<tr class="tr1">
+				<td colspan="7">
+					<input type="text" id="result_id" readonly="readonly"></td>
+			</tr>
+			<tr class="tr1" id="btn_row1">
+				<td>
+					<input id="in_7" class="button_style" type="button" value="7"></td>
+				<td>
+					<input id="in_8" class="button_style" type="button" value="8"></td>
+				<td>
+					<input id="in_9" class="button_style" type="button" value="9"></td>
+				<td>
+					<input id="in_div" class="button_style" type="button" value="/"></td>
+				<td>
+					<input id="in_sin" class="button_style" type="button" value="sin"></td>
+				<td colspan="2">
+					<input id="in_c" class="button_style" type="button" value="C"></td>
+			</tr>
+			<tr  id="btn_row2">
+				<td>
+					<input id="in_4" class="button_style" type="button" value="4"></td>
+				<td>
+					<input id="in_5" class="button_style" type="button" value="5"></td>
+				<td>
+					<input id="in_6" class="button_style" type="button" value="6"></td>
+				<td>
+					<input id="in_mult" class="button_style" type="button" value="*"></td>
+				<td>
+					<input id="in_cos" class="button_style" type="button" value="cos"></td>
+				<td>
+					<input id="in_1x" class="button_style" type="button" value="1/x"></td>
+				<td>
+					<input id="in_x2" class="button_style" type="button" value="x&sup2"></td>
+			</tr>
+			<tr  id="btn_row3">
+				<td>
+					<input id="in_1" class="button_style" type="button" value="1"></td>
+				<td>
+					<input id="in_2" class="button_style" type="button" value="2"></td>
+				<td>
+					<input id="in_3" class="button_style" type="button" value="3"></td>
+				<td>
+					<input id="in_subtract" class="button_style" type="button" value="-"></td>
+				<td>
+					<input id="in_tan" class="button_style" type="button" value="tan"></td>
+				<td>
+					<input id="in_sqr" class="button_style" type="button" value=&radic;></td>
+				<td rowspan="2">
+					<input id="in_equ" class="button_style" type="button" value="="></td>
+			</tr>
+			<tr  id="btn_row4">
+				<td colspan="2">
+					<input id="in_0" class="button_style" type="button" value="0"></td>
+				<td>
+					<input id="in_dot" class="button_style" type="button" value="."></td>
+				<td>
+					<input id="in_add" class="button_style" type="button" value="+"></td>
+				<td>
+					<input id="in_ctan" class="button_style" type="button" value="log()"></td>
+				<td>
+					<input id="in_pi" class="button_style" type="button" value=&pi;></td>
+			</tr>
+		</table>
+	</div>
+</body>
+	<script type="text/javascript" src="calc.js"></script>
+</html>
