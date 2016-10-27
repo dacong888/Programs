@@ -1,0 +1,54 @@
+// 创建数据库
+create database db_school;
+
+// 选中数据库
+use db_school;
+
+// 创建四个对象的数据表
+// 创建学生表
+create table student(sid int auto_increment primary key, sname varchar(20) not null, gender varchar(10) not null);
+insert into student values(null, '李红','女');
+insert into student values(null, '李雷','男');
+insert into student values(null, '张一','男');
+insert into student values(null, '王丽','女');
+insert into student values(null, '孙鑫','女');
+
+// 创建教师表
+create table teacher(tid int auto_increment primary key, tname varchar(20) not null);
+insert into teacher values(null, '张三');
+insert into teacher values(null, '李四');
+insert into teacher values(null, '王五');
+
+// 创建课程表
+create table course(cid int auto_increment primary key, cname varchar(20) not null, tid int not null);
+alter table course add foreign key(tid) references teacher(tid);
+insert into course values(null, '数学',1);
+insert into course values(null, '语文',2);
+insert into course values(null, '英语',3);
+
+// 创建成绩表
+create table score(sid int not null, cid int not null, scores int not null);
+alter table score add foreign key(sid) references student(sid);
+alter table score add foreign key(cid) references course(cid);
+insert into score values(1,1,90);
+insert into score values(1,2,80);
+insert into score values(2,1,92);
+insert into score values(2,3,70);
+insert into score values(3,2,88);
+insert into score values(3,3,90);
+insert into score values(4,1,85);
+insert into score values(4,3,90);
+insert into score values(5,2,90);
+insert into score values(5,3,93);
+
+//获取所有选修数学的女生
+select st.sname from student st, score sc where st.sid = sc.sid and st.gender='女' and sc.cid=1;
+
+//按照课程，给出每一门课程的平均成绩
+select c.cname, avg(sc.scores) from course c, score sc where c.cid=sc.cid group by c.cname;
+
+//按照课程，给出每门课程成绩最高的学生姓名
+select c.cname, st.sname, sc.scores from course c, student st, score sc where sc.cid=c.cid and sc.sid=st.sid and sc.scores = (select max(scores) from score where score.cid = c.cid);
+
+//给出张三教师所教学生的课程成绩
+select s.sname, c.cname, sc.scores from student s, course c, teacher t, score sc where s.sid=sc.sid and c.tid=t.tid and c.cid=sc.cid and t.tname='张三';
