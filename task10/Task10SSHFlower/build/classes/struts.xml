@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.action.extension" value="action, do"></constant>
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+	<constant name="struts.configation.xml.reload" value="true"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	
+	<package name="test" extends="struts-default">
+		<action name="login" class="loginAction">
+			<result name="register">/register.jsp</result>
+			<result name="index">/index.jsp</result>
+			<result name="adminlogin">/adminLogin.jsp</result>
+			<result name="admin">/admin.jsp</result>
+			<result name="shopping">/shopping.jsp</result>
+			
+		</action>
+		
+		<action name="admin" class="adminAction">
+			<result name="admin">/admin.jsp</result>
+		</action>
+		
+		<action name="order" class="orderAction">
+			<result name="index">/index.jsp</result>
+			<result name="ordertrade">/ordertrade.jsp</result>
+		</action>
+		
+		<action name="goods" class="goodsAction">
+			<result name="goodsdesc">/goodsdesc.jsp</result>
+			<result name="success">/add_success.jsp</result>
+			<result name="fail">/add_fail.jsp</result>
+			<result name="goodsdetails">/shoppingcart.jsp</result>
+		</action>
+		
+		<action name="register" class="registerAction">
+			<result name="goodsdesc">/goodsdesc.jsp</result>
+			<result name="index">/index.jsp</result>
+		</action>
+
+	</package>
+	
+</struts>

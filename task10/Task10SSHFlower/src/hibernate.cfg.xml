@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置session绑定到当前线程 -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- 配置MySQL数据库连接 --><!-- 方言类 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!--连接MySQL的驱动类名 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.show_sql">false</property>
+		<property name="format_sql">false</property>
+		<!-- 注册*.hbm.xml -->
+		<mapping resource="com/task10sshflower/vo/Users.hbm.xml" />
+		<mapping resource="com/task10sshflower/vo/Orders.hbm.xml" />
+		<mapping resource="com/task10sshflower/vo/OrderDetails.hbm.xml" />
+		<mapping resource="com/task10sshflower/vo/Goods.hbm.xml" />
+		<mapping resource="com/task10sshflower/vo/Category.hbm.xml" />
+		<mapping resource="com/task10sshflower/vo/Admin.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

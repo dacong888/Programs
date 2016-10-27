@@ -1,0 +1,114 @@
+/*sd表示自定义css*/
+.navbar-sd-color{
+	background-color: #f1f1f1;
+}
+
+.title-brand-sd-color{
+	color: #28A4C9;
+}
+
+.sidebar-sd-style {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 220px;
+    padding: 0;
+    background-color: #f1f1f1;
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: -blackberry-touch;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+
+.body-sd-color{
+	background: #f9f9f9;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.sidebar-sd-style ul li {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.submenu-sd-sytle{
+	display: none;
+}
+
+.sidebar-sd-style li {
+    border-top: 1px solid #f3f3f3;
+}
+
+.maincontent {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    min-width: 320px !important;
+    overflow: hidden;
+}
+
+.content-title-sd-style{
+	margin-top: 60px;
+}
+
+.dlg-sd-top{
+	margin-top:220px;
+}
+
+.content-nav-sd-top
+{
+	margin-top: 10px;
+}
+
+.bk-sd-color{
+	background: #f2f4f8;
+}
+
+.top-sd-above{
+	margin-top: 30px;
+}
+
+.top-sd-above20{
+	margin-top: 20px;
+}
+
+.top-sd-above10{
+	margin-top: 10px;
+}
+
+.margin-sd-right{
+	margin-right: 100px;
+}
+
+.text-sd-intent{
+	text-indent: 2em;
+}
+
+.table-sd-result-style{
+    width: 955px !important;
+    margin-left: 80px;
+}
+
+.margin-sd-left{
+	margin-left:80px;
+}
+
+.margin-sd-width500{
+	width:600px !important;
+}
+
+.form-sd-control{
+	width: 100%;
+	padding: .75rem 1.75rem;
+	border-radius: 0.5rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+}
+

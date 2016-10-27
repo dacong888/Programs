@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 引入JDBC属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	 
+
+	<!-- 配置Hibernate -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 连接池管理 -->
+		<property name="dataSource" ref="dataSource" />
+		
+		<!-- 配置连接池属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<prop key="connection.driver_class">com.mysql.jdbc.Driver</prop>
+			</props>
+		</property>
+		
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:com/task10sshflower/vo</value>
+			</list>
+		</property>	
+	</bean>
+	
+	
+	<!-- 配置Struts2 Action -->
+	<bean id="loginAction" class="com.task10sshflower.action.LoginAction" scope="prototype">
+		<property name="tradeService" ref="tradeService" />
+	</bean>
+	
+	<bean id="adminAction" class="com.task10sshflower.action.AdminAction" scope="prototype">
+		<property name="tradeService" ref="tradeService" ></property>
+	</bean>
+	
+	<bean id="orderAction" class="com.task10sshflower.action.OrderAction" scope="prototype">
+		<property name="tradeService" ref="tradeService" ></property>
+	</bean>
+	
+	<bean id="goodsAction" class="com.task10sshflower.action.GoodsAction" scope="prototype">
+		<property name="tradeService" ref="tradeService" ></property>
+	</bean>
+	
+	<bean id="registerAction" class="com.task10sshflower.action.RegisterAction" scope="prototype">
+		<property name="tradeService" ref="tradeService" ></property>
+	</bean>
+	
+	
+	
+	<!-- 配置VipService业务 -->
+	<bean id="tradeService" class="com.task10sshflower.service.TradeService">
+		<property name="baseDaoAdminImpl" ref="baseDaoAdminImpl"></property>
+		<property name="baseDaoCategoryImpl" ref="baseDaoCategoryImpl"></property>
+		<property name="baseDaoGoodsImpl" ref="baseDaoGoodsImpl"></property>
+		<property name="baseDaoOrderDetailsImpl" ref="baseDaoOrderDetailsImpl"></property>
+		<property name="baseDaoOrdersImpl" ref="baseDaoOrdersImpl"></property>
+		<property name="baseDaoUsersImpl" ref="baseDaoUsersImpl"></property>
+	</bean>
+	
+		<!-- DAO配置 -->
+	<bean id="baseDaoAdminImpl" class="com.task10sshflower.dao.impl.BaseDaoAdminImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="baseDaoCategoryImpl" class="com.task10sshflower.dao.impl.BaseDaoCategoryImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="baseDaoGoodsImpl" class="com.task10sshflower.dao.impl.BaseDaoGoodsImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="baseDaoOrderDetailsImpl" class="com.task10sshflower.dao.impl.BaseDaoOrderDetailsImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="baseDaoOrdersImpl" class="com.task10sshflower.dao.impl.BaseDaoOrdersImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="baseDaoUsersImpl" class="com.task10sshflower.dao.impl.BaseDaoUsersImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	
+	<!-- 管理事务 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	
+	<!-- 事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	
+</beans>

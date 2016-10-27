@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.task10sshflower.vo.Goods" table="goods">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="goodsName" column="goodsname" type="string"></property>
+		<property name="description" column="description" type="string"></property>
+		<property name="price" column="price" type="java.math.BigDecimal"></property>
+		<property name="categoryId" column="categoryid" type="int"></property>
+		<property name="imgUrl" column="imgurl" type="string"></property>
+		<many-to-one name="category" class="com.task10sshflower.vo.Category" column="categoryId" />
+	</class>
+</hibernate-mapping>

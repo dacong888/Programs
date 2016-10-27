@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.task10sshflower.vo.Users" table="users">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="userName" column="username" type="string"></property>
+		<property name="realName" column="realname" type="string"></property>
+		<property name="passWord" column="password" type="string"></property>
+		<property name="pwdQuestion" column="pwdquestion" type="string"></property>
+		<property name="pwdQuestionAnswer" column="pwdquestionanswer" type="string"></property>
+		<property name="address" column="address" type="string"></property>
+		<property name="phoneNO" column="phoneno" type="string"></property>
+		<property name="email" column="email" type="string"></property>
+	</class>
+</hibernate-mapping>

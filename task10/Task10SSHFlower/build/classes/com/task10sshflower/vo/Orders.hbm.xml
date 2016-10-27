@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.task10sshflower.vo.Orders" table="orders">
+		<id name="ordersId" column="ordersid">
+			<generator class="native"></generator>
+		</id>
+		<property name="userName" column="username" type="string"></property>
+		<property name="num" column="num" type="int"></property>
+		<property name="sum" column="sum" type="java.math.BigDecimal"></property>
+		<property name="createTime" column="createTime" type="date"></property>
+		<set name="orderDetails" inverse="true">
+				<key column="ordersId" not-null="true"/>
+				<one-to-many class="com.task10sshflower.vo.OrderDetails"/>
+		</set>
+	</class>
+</hibernate-mapping>
