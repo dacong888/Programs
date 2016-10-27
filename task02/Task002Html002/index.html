@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>计算器</title>
+  <script type="text/javascript" src="operate.js"></script>
+  <style type="text/css">
+    body{
+      background-color:#86C2FF
+    }
+
+#titleid, #maintable{
+  position:relative;
+  top:100px;
+}
+
+  </style>
+</head>
+  <!-- 定义计算器头部，加入外部js文件用于计算“+，-，*，/ 操作” -->
+<body>
+  <div>
+    <p id="titleid" align="center" color="blue" style="font-weight:bold; font-size:180%">计算器</p>
+  </div>
+  <div>
+    <table id="maintable" width="479" height="275" border="1" align="center">
+      <!-- 定义一个table，其中分别放入button用于四则运算操作。 -->
+      <tr>
+        <td width="80" height="50" align="center">
+          <input type="button" value="C" onclick="clearContent()" style="height: 54px; width: 110px; font-size: 35px; color: black; background:#FBB"/>
+        </td>
+        <td height="50" colspan="3" align="center">
+          <input type="text" id="testdialog" style="height: 50px; width: 350px; font-size: 50px; " readonly="readonly" />
+        </td>
+      </tr>
+      <tr>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit2" value="7" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit6" value="8" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit10" value="9" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit14" value="+" onclick="calculateOperation(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#FFFFCA"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="80" height="44" align="center" valign="middle">
+          <input type="submit" name="Submit3" value="4" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="44" align="center" valign="middle">
+          <input type="submit" name="Submit7" value="5" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="44" align="center" valign="middle">
+          <input type="submit" name="Submit11" value="6" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="44" align="center" valign="middle">
+          <input type="submit" name="Submit15" value="-" onclick="calculateOperation(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#FFFFCA"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit4" value="1" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit8" value="2" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit12" value="3" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit16" value="*" onclick="calculateOperation(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#FFFFCA"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit5" value="0" onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit9" value="." onclick="getNum(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit13" value="=" onclick="getResult()" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#F7F7F7"/>
+        </td>
+        <td width="80" height="50" align="center" valign="middle">
+          <input type="submit" name="Submit17" value="/" onclick="calculateOperation(this)" style="height: 50px; width: 110px; font-size: 35px; color: black; background:#FFFFCA"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
