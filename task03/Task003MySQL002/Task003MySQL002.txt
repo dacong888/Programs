@@ -1,0 +1,29 @@
+//1. 创建一个学生数据库。
+create database student_db;
+
+//2. 选中创建的学生数据库，用于后面学生表的创建。
+use student_db;
+
+//3. 创建一个学生的数据表，其中在表中创建：学生ID、学生姓名、学生年龄、学生性别以及学生地址等字段。
+create table t_students(stu_id int unsigned not null auto_increment primary key, stu_name char(8) not null, stu_age tinyint unsigned not null, stu_gender char(4) not null, stu_address varchar(100) not null);
+
+//4.1 根据上面创建的表结构，创建十个学生信息。（方法一）
+insert into t_students value(1, "赵飞", 20, "男", "北京市朝阳区");
+insert into t_students value(2, "钱峰", 21, "男", "北京市海淀区");
+insert into t_students value(3, "孙开", 18, "男", "北京市丰台区");
+insert into t_students value(4, "李红", 14, "女", "北京市东城区");
+insert into t_students value(5, "周挺", 12, "男", "北京市西城区");
+insert into t_students value(6, "吴爽", 16, "女", "北京市石景山区");
+insert into t_students value(7, "郑智", 22, "男", "北京市顺义区");
+insert into t_students value(8, "王峰", 9, "男", "北京市房山区");
+insert into t_students value(9, "冯亮", 30, "男", "北京市大兴区");
+insert into t_students value(10, "陈英", 11, "女", "北京市昌平区");
+
+//4.2 根据上面创建的表结构，创建十个学生信息。（方法二）
+insert into t_students(stu_id, stu_name, stu_age, stu_gender, stu_address)values(1, "赵飞", 20, "男", "北京市朝阳区"),(2, "钱峰", 21, "男", "北京市海淀区"),(3, "孙开", 18, "男", "北京市丰台区"),(4, "李红", 14, "女", "北京市东城区"),(5, "周挺", 12, "男", "北京市西城区"),(6, "吴爽", 16, "女", "北京市石景山区"),(7, "郑智", 22, "男", "北京市顺义区"),(8, "王峰", 9, "男", "北京市房山区"),(9, "冯亮", 30, "男", "北京市大兴区"),(10, "陈英", 11, "女", "北京市昌平区");
+
+//5. 在学生表中，查询年龄大于15岁的男生。
+select * from t_students where stu_gender="男" and stu_age>15;
+
+//6. 在学生表中，删除所有男生。
+delete from t_students where stu_gender="男";

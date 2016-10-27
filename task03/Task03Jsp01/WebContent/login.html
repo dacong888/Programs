@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+	<title>登录页面</title>
+	<!-- 设置登录页面的样式 -->
+	<style type="text/css">
+	.dark_style{
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 480px;
+			background: #555;
+			padding: 20px 30px 20px 30px;
+			font: 14px "Helvetica Neue", Helvetica, 宋体, sans-serif;
+			color: #D3D3D3;
+			text-shadow: 1px 1px 1px #444;
+			border: none;
+			border-radius: 5px;
+		}
+	.dark_style h1 {
+			padding: 5px 0px 10px 40px;
+			display: block;
+			border-bottom: 1px solid #444;
+			margin: -10px -30px 25px -30px;
+			font-size: 28px;
+			}
+	.dark_style h1>span {
+			display: block;
+			font-size: 11px;
+			}
+	.dark_style label {
+			display: block;
+			margin: 0px 0px 5px;
+			}
+	.dark_style label>span {
+			float: left;
+			width: 20%;
+			text-align: right;
+			padding-right: 10px;
+			margin-top: 10px;
+			font-weight: bold;
+			}
+	.dark_style input[type="text"], .dark_style input[type="password"]{
+			border: none;
+			color: #525252;
+			height: 25px;
+			line-height:15px;
+			margin-bottom: 16px;
+			margin-right: 6px;
+			margin-top: 2px;
+			outline: 0 none;
+			padding: 5px 0px 5px 5px;
+			width: 50%;
+			border-radius: 4px;
+			background: #DFDFDF;
+			}
+
+	#sub_id{
+		background: #00FFFF;
+		border: none;
+		padding: 10px 25px 10px 25px;
+		color: #585858;
+		border-radius: 4px;
+		text-shadow: 1px 1px 1px #FFE477;
+		font-weight: bold;
+		font-size: 12px;
+		font-family: 宋体; 
+	}
+	</style>
+	
+	<!-- 简单判断登录信息的完整性与有效性 -->
+	<script type="text/javascript">
+		function checkResult(){
+			var name_context = document.getElementById("name_id").value;
+			var pwd_context = document.getElementById("pwd_id").value;
+			if(name_context == "" || pwd_context.length == 0){
+				alert("输入内容信息不完整，请重新输入后登陆。");
+				return false;
+			}
+			else if(name_context.indexOf(" ")!= -1){
+				alert("用户名不能有空格。");
+				return false;
+			}
+			
+			return true;
+		}
+	</script>
+</head>
+<body class="dark_style">
+<form action="login_result.jsp" method="POST" onsubmit="return checkResult()">
+	<h1>登录</h1>
+	<label>
+		<span>姓名：</span>
+		<input type="text" name="name" id="name_id" placeholder="请输入姓名" />
+	</label>
+
+	<label>
+		<span>密码：</span>
+		<input type="password" name="pwd" id="pwd_id" placeholder="请输入密码" />
+	</label>
+
+	<label>
+		<span>&nbsp;</span>
+		<input id="sub_id" type="submit" value="提交" />
+	</label>
+</form>
+</body>
+</html>
