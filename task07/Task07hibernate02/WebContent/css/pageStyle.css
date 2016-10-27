@@ -1,0 +1,93 @@
+.dark_style {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 480px;
+	background: #555;
+	padding: 20px 30px 20px 30px;
+	font: 14px "Helvetica Neue", Helvetica, 宋体, sans-serif;
+	color: #D3D3D3;
+	text-shadow: 1px 1px 1px #444;
+	border: none;
+	border-radius: 5px;
+}
+
+.dark_style h1 {
+	padding: 5px 0px 10px 40px;
+	display: block;
+	border-bottom: 1px solid #444;
+	margin: -10px -30px 25px -30px;
+	font-size: 28px;
+}
+
+.dark_style h1>span {
+	display: block;
+	font-size: 11px;
+}
+
+.dark_style label {
+	display: block;
+	margin: 0px 0px 5px;
+}
+
+.dark_style label>span {
+	float: left;
+	width: 20%;
+	text-align: right;
+	padding-right: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.dark_style input[type="text"], .dark_style input[type="password"] {
+	border: none;
+	color: #525252;
+	height: 25px;
+	line-height: 15px;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	outline: 0 none;
+	padding: 5px 0px 5px 5px;
+	width: 50%;
+	border-radius: 4px;
+	background: #DFDFDF;
+}
+
+#sub_id, #reg_id {
+	background: #00FFFF;
+	border: none;
+	padding: 10px 25px 10px 25px;
+	color: #585858;
+	border-radius: 4px;
+	text-shadow: 1px 1px 1px #FFE477;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: 宋体;
+}
+
+input#reg_id {
+    margin-left: 170px;
+}
+
+#sub_id{
+	margin-left:100px;
+}
+
+#reg_id{
+	margin-left: 22px;
+}
+
+#non_id{
+	margin-top:1px;
+	color:red;
+	margin-left:150px;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: 宋体;
+}
+
+a{
+	color:yellow;
+	font-size:18px;
+	margin-left:10px;
+}

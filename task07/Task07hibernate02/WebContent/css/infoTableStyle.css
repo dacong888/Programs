@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+body, table {
+	font-size: 13px;
+}
+
+table {
+	table-layout: fixed;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#back_id{
+	margin:30px;
+}
+
+a {
+    margin-left: 10px;
+    font-size: 16px;
+    color: blue;
+}
+
+a:link {
+text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+}
+a:hover {
+text-decoration: none;
+}
+a:active {
+text-decoration: none;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 15px;
+    color: blue;
+}
+
+td {
+	height: 30px;
+}
+
+.userInfo_id {
+	border: 1px solid #cad9ea;
+	color: #666;
+}
+
+.userInfo_id th {
+	background-repeat: repeat-x;
+	height: 30px;
+}
+
+.userInfo_id td, .userInfo_id th {
+	border: 1px solid #cad9ea;
+	padding: 0 1em 0;
+}
+
+.userInfo_id tr.alter {
+	background-color: #f5fafe;
+}

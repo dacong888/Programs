@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.task07hibernate01.entity.Poetries" table="poetries">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<!-- <property name="poet_id" column="poet_id"></property> -->
+		<property name="content" column="content"></property>
+		<property name="title" column="title"></property>
+		<!-- <many-to-one name="poets_id" class="com.task07hibernate01.entity.Poets" column="id" unique="true"></many-to-one> -->
+		<!-- <one-to-one name="poets_id" class="com.task07hibernate01.entity.Poets" property-ref="poetries"></one-to-one> -->
+		<many-to-one name="poets" class="com.task07hibernate01.entity.Poets" column="poet_id" />
+	</class>
+</hibernate-mapping>
