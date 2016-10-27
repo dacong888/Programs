@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.action.extension" value="action, do"></constant>
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+	<constant name="struts.configation.xml.reload" value="true"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	
+	<package name="test" extends="struts-default">
+		<action name="login" class="loginAction">
+			<result name="main">/main.jsp</result>
+			<result name="index">/index.jsp</result>
+		</action>
+		
+		<action name="commodity" class="commodityAction">
+			<result name="goodsadd">/goodsadd.jsp</result>
+			<result name="goodssearch">/goodssearch.jsp</result>
+		</action>
+		
+		<action name="user" class="userAction">
+			<result name="help">/help.jsp</result>
+			<result name="maintain">/maintain.jsp</result>
+		</action>
+		
+		<action name="vip" class="vipAction">
+			<result name="vipmanage">/vipmanage.jsp</result>
+			<result name="vipreg">/vipreg.jsp</result>
+			<result name="vipsearch">/vipsearch.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

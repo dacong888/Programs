@@ -1,0 +1,15 @@
+﻿// 创建数据库
+create database db_vip;
+
+// 创建数据表
+//1. VIP表：用来存放VIP用户详细信息
+create table vip(vipid int(11) not null auto_increment, jointime date default null, name varchar(20) default null, age int(11) default null, profession varchar(20) default null, primary key(vipid));
+
+//2. commodity表：用来存放商品的详细信息
+create table commodity(commodityid int(11) not null auto_increment, commodityname varchar(30) default null, price decimal(10,2) default null, agio decimal(4,3) default null, primary key(commodityid));
+
+//3. consume表：用来存放VIP用户购物的详细信息
+create table consume(consumeid int(11) not null auto_increment, vipid int(11) default null, name varchar(20) default null, commodityid int(11) default null, commodityname varchar(30) default null, price decimal(10,2) default null, practiceprice decimal(10,2) default null, primary key(consumeid));
+
+//4. user表：用来存放管理用户信息
+create table user (username varchar(20) not null default '', password varchar(20) default null, quanxian int(11) default null, primary key(username));

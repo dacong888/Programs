@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.task09sshvipsystem.vo.Vip" table="vip">
+		<id name="vipId" column="vipid">
+			<generator class="native"></generator>
+		</id>
+		<property name="joinTime" column="jointime" type="date"></property>
+		<property name="name" column="name" type="string"></property>
+		<property name="age" column="age" type="int"></property>
+		<property name="profession" column="profession" type="string"></property>
+	</class>
+</hibernate-mapping>
