@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
+                http://www.springframework.org/schema/context  
+                 http://www.springframework.org/schema/context/spring-context-4.3.xsd  
+                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+  
+  	 <!-- 引入JDBC属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+  
+  	
+       <!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+  
+     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+     	 <!-- 加载数据库连接池 -->
+	     <property name="dataSource" ref="dataSource" />  
+	     <!-- 加载mybatis全局配置文件 -->
+	     <property name="configLocation" value="classpath:mybatis-config.xml"></property>  
+ 	 </bean>  
+	 
+	 <!-- mapper扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
+        <property name="basePackage" value="com.task12springmvcmybatis.dao"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+    
+       <!-- 事务管理器
+        对mybatis操作数据库进行事务控制，spring使用jdbc的事务控制类 -->    
+    <bean id="transactionManager" 
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 数据源
+            dataSource在applicationContext-dao.xml中已经配置
+         -->
+         <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="service" class="com.task12springmvcmybatis.service.RetrivalService" />
+    
+</beans> 

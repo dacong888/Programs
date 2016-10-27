@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.task12springmvcmybatis.dao.PoetsMapper">
+	<!-- 测试
+		<select id="getUser" parameterType="int" resultType="P">
+		select * from poet where id=#{id} 
+	</select> -->
+	
+	<!-- <select id="getContentByTitle" parameterType="String" resultType="String">
+		select content from poetries where title like CONCAT('%',#{content},'%')
+	</select> -->
+	
+	<resultMap id="poetsResultMap" type="P">
+		<id property="id" column="id" javaType="int"/>
+		<result property="name" column="name" javaType="string" />
+		<collection property="poetries" ofType="Ps">
+			<id property="id" column="id" javaType="int" />
+			<result property="poet_id" column="poet_id" javaType="int" />
+			<result property="content" column="content" javaType="string" />
+			<result property="title" column="title" javaType="string" />
+		</collection>
+	</resultMap>
+	
+	<select id="getContentByTitle" parameterType="string" resultMap="poetsResultMap">
+		select title, content from poetries where title like CONCAT('%',#{content},'%')
+	</select>
+	
+	<select id="getContentByName" parameterType="string" resultMap="poetsResultMap">
+		select p.name, ps.title from poets p, poetries ps where p.id=ps.poet_id and p.name like CONCAT('%',#{content},'%')
+	</select>
+	
+	<resultMap id="poetriesResultMap" type="Ps">
+		<id property="id" column="id" javaType="int"/>
+		<result property="poet_id" column="poet_id" javaType="int" />
+		<result property="title" column="title" javaType="string" />
+		<result property="content" column="content" javaType="string" />
+		<association property="poets" javaType="P">
+			<id property="id" column="id" javaType="int" />
+			<result property="name" column="name" javaType="string" />
+		</association>
+	</resultMap>	
+	
+	
+	<select id="getContentByContent" parameterType="string" resultMap="poetriesResultMap">
+		select * from poets p, poetries ps where p.id=ps.poet_id and ps.content like CONCAT('%',#{content},'%')
+	</select>
+	
+</mapper>
